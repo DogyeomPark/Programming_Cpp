@@ -15,10 +15,17 @@ public:
 	{
 		cout << "name: " << name << endl;
 	}
+	virtual int GetPay() const
+	{
+		return 0;
+	}
+	virtual void ShowSalaryInfo() const { }
 };
 
 class PermanentWorker : public Employee
 {
+private:
+	int salary;
 public:
 	PermanentWorker(const char*name, int money) : Employee(name), salary(money){}
 	int GetPay() const
@@ -30,8 +37,6 @@ public:
 		ShowYourName();
 		cout << "salary: " << GetPay() << endl << endl;
 	}
-private:
-	int salary;
 };
 
 class EmployeeHandler
@@ -40,15 +45,25 @@ private:
 	Employee* empList[50];
 	int empNum;
 public:
-	EmployeeHandler() : empNum(0) { }
+	EmployeeHandler() : empNum(0) 
+	{ }
 	void AddEmployee(Employee* emp)
 	{
 		empList[empNum++] = emp;
 	}
-	void ShowAllSalaryInfo() const { }
+	void ShowAllSalaryInfo() const 
+	{
+		for (int i = 0; i < empNum; i++)
+		{
+			empList[i]->ShowSalaryInfo();
+		}
+	}
 	void ShowTotalSalary() const
 	{
 		int sum = 0;
+		for (int i = 0; i < empNum; i++)
+			sum += empList[i]->GetPay();
+
 		cout << "salary sum: " << sum << endl;
 	}
 	~EmployeeHandler()
@@ -66,6 +81,7 @@ private:
 public:
 	TemporaryWorker(const char * name, int pay)
 		:Employee(name), workTime(0), payPerHour(pay) { }
+
 	void AddWorkTime(int time)
 	{
 		workTime += time;
@@ -89,6 +105,7 @@ private:
 public:
 	SalesWorker(const char* name, int money, double ratio)
 		: PermanentWorker(name, money), salesResult(0), bonusRatio(ratio){ }
+
 	void AddSalesResult(int value)
 	{
 		salesResult += value;
@@ -112,7 +129,14 @@ int main()
 
 	handler.AddEmployee(new PermanentWorker("KIM", 1000));
 	handler.AddEmployee(new PermanentWorker("LEE", 1500));
-	handler.AddEmployee(new PermanentWorker("JUN", 2000));
+	
+	TemporaryWorker* alba = new TemporaryWorker("Jung", 700);
+	alba->AddWorkTime(5);
+	handler.AddEmployee(alba);
+
+	SalesWorker* seller = new SalesWorker("Hong", 1000, 0.1);
+	seller->AddSalesResult(7000);
+	handler.AddEmployee(seller);
 
 	handler.ShowAllSalaryInfo();
 

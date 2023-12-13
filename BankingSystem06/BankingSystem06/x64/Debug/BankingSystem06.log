@@ -1,0 +1,17 @@
+﻿  BankingSystem06.cpp
+C:\Users\tjoeun\Documents\GitHub\Programming_Cpp\BankingSystem06\BankingSystem06\BankingSystem06.cpp(104,26): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\tjoeun\Documents\GitHub\Programming_Cpp\BankingSystem06\BankingSystem06\BankingSystem06.cpp(121,26): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+BankingSystem06.obj : error LNK2019: "void __cdecl ShowMenu(void)" (?ShowMenu@@YAXXZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+    정의되었으며 잠재적으로 일치할 수 있는 기호에 대한 힌트:
+      "public: void __cdecl AccountHandler::ShowMenu(void)const " (?ShowMenu@AccountHandler@@QEBAXXZ)
+BankingSystem06.obj : error LNK2019: "void __cdecl MakeAccount(void)" (?MakeAccount@@YAXXZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+BankingSystem06.obj : error LNK2019: "void __cdecl DepositMoney(void)" (?DepositMoney@@YAXXZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+    정의되었으며 잠재적으로 일치할 수 있는 기호에 대한 힌트:
+      "public: void __cdecl AccountHandler::DepositMoney(void)" (?DepositMoney@AccountHandler@@QEAAXXZ)
+BankingSystem06.obj : error LNK2019: "void __cdecl WithdrawMoney(void)" (?WithdrawMoney@@YAXXZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+    정의되었으며 잠재적으로 일치할 수 있는 기호에 대한 힌트:
+      "public: void __cdecl AccountHandler::WithdrawMoney(void)" (?WithdrawMoney@AccountHandler@@QEAAXXZ)
+BankingSystem06.obj : error LNK2019: "void __cdecl ShowAllAccInfo(void)" (?ShowAllAccInfo@@YAXXZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+    정의되었으며 잠재적으로 일치할 수 있는 기호에 대한 힌트:
+      "public: void __cdecl AccountHandler::ShowAllAccInfo(void)const " (?ShowAllAccInfo@AccountHandler@@QEBAXXZ)
+C:\Users\tjoeun\Documents\GitHub\Programming_Cpp\BankingSystem06\x64\Debug\BankingSystem06.exe : fatal error LNK1120: 5개의 확인할 수 없는 외부 참조입니다.
